@@ -7,7 +7,7 @@
 
 > **Mission Overview:** An open-source, defense-grade state estimation framework designed for tracking small Uncrewed Aerial Systems (sUAS) exhibiting highly evasive, non-linear flight maneuvers. Optimized for tactical edge hardware (SWaP-C constrained) deployed in Short-Range Air Defense (SHORAD) applications.
 
-## 📖 Abstract Overview
+##  Abstract Overview
 
 Autonomous tracking of low-RCS (Radar Cross-Section) drones presents severe operational challenges due to complex background clutter and aggressive evasion tactics. Conventional trackers relying on spherical coordinates or single-model filters frequently suffer from severe estimation bias and latency bottlenecks during tactical edge deployment.
 
@@ -15,7 +15,7 @@ This architecture solves these constraints by combining **Local Tangent Plane (N
 
 ---
 
-## ⚙️ Core System Architecture
+##  Core System Architecture
 
 *   **Coordinate Frame:** Target measurements are transformed from geodetic coordinates to a localized North-East-Down (NED) Cartesian space, vastly reducing computational overhead for 0–200m tactical engagement zones.
 *   **Sensor Fusion (Decision-Level):** Resolves monocular range ambiguity by fusing dual-EO/IR angular centroids with simulated active ranging telemetry (1.0 m² noise variance).
@@ -27,7 +27,7 @@ This architecture solves these constraints by combining **Local Tangent Plane (N
 
 ---
 
-## 📊 Empirical Benchmarks (100-Run Monte Carlo)
+##  Empirical Benchmarks (100-Run Monte Carlo)
 
 System performance was evaluated using a 100-run Monte Carlo simulation, injecting stochastic sensor noise and randomizing the true threat evasion turn-rate to validate model-mismatch survivability.
 
@@ -41,7 +41,7 @@ System performance was evaluated using a 100-run Monte Carlo simulation, injecti
 
 ---
 
-## 📈 Visualizations
+##  Visualizations
 
 ### 1. 3D Threat Trajectory Estimation
 The proposed IMM-EKF accurately filters stochastic sensor noise and tracks the dynamic evasion path in NED Cartesian space. 
@@ -56,21 +56,3 @@ Tracks the Markov probability distribution as the tracker shifts weight from Con
 *(See `docs/mode_probabilities.png`)*
 
 ---
-
-## 📂 Repository Structure
-
-```text
-cuas-imm-tracker/
-├── README.md
-├── requirements.txt
-├── docs/
-│   ├── manuscript.pdf               # Full IEEE-formatted research paper
-│   ├── trajectory_3d_comparison.png # High-res generated figures
-│   ├── position_error_profile.png
-│   └── mode_probabilities.png
-├── notebooks/
-│   └── trajectory_analysis.ipynb    # Interactive Monte Carlo simulation
-└── src/                             # Core Python modules (WIP)
-    ├── __init__.py
-    ├── filters.py
-    └── transforms.py
